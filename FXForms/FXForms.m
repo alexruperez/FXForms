@@ -1630,7 +1630,10 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
     
     if (index2 >= [self.fields count])
     {
-        [self.fields addObject:field];
+        if (field)
+        {
+            [self.fields addObject:field];
+        }
         [self.values addObject:value];
     }
     else
@@ -2989,6 +2992,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 
 - (BOOL)resignFirstResponder
 {
+    [super resignFirstResponder];
     return [self.textField resignFirstResponder];
 }
 
@@ -3178,6 +3182,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 
 - (BOOL)resignFirstResponder
 {
+    [super resignFirstResponder];
     return [self.textView resignFirstResponder];
 }
 
